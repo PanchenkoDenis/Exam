@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Employee {
 
     private final int id;
@@ -89,5 +91,8 @@ public class Employee {
         Employee Employee = (Employee) o;
         return id == Employee.id;
     }
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

@@ -22,11 +22,14 @@ public class Main {
         info();
         getFullNameEmployees();
         info();
+        getNewSalaryByPersent();
+        info();
+        getMinSalaryDepartment_2();
 
     }
 
     public static void info() {
-        System.out.println("---------------------------------");
+        System.out.println("-----------");
     }
 
     public static void getAllEmployees() {
@@ -113,4 +116,34 @@ public class Main {
             }
         }
     }
+    public static void getNewSalaryByPersent() {
+        double indexByPercent;
+        for (int i = 0; i < employees.length; i++) {
+            indexByPercent = employees[i].getSalary() * 1.25;
+            System.out.println("увеличение зарплаты на 25 процентов: " + indexByPercent);
+
+        }
+    }
+    public static Employee getMinSalaryDepartment_2() {
+        double min = 0;
+        int index = 0;
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i] != null) {
+                min = employees[i].getSalary();
+                index = i;
+                break;
+            }
+        }
+        Employee minSalary = employees[index];
+        for (int i = index; i < employees.length; i++) {
+            if (employees[i].getDepartment() != 2) continue;
+            if (employees[i].getSalary() < min) {
+                min = employees[i].getSalary();
+                minSalary = employees[i];
+            }
+        }
+        System.out.println("Minimum in 2: \n"  + minSalary);
+        return minSalary;
+    }
+
 }
